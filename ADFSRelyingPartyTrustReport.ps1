@@ -1,15 +1,38 @@
+<#
+  .SYNOPSIS
+  Dumps the details of all Relying Party Trusts to an Excel Spreadsheet.
+  .DESCRIPTION
+  Dumps the details of all Relying Party Trusts of a given ADFS Farm to a nicely formatted and filtered Excel Spreadsheet.
+  .PARAMETER
+  None
+  .EXAMPLE
+  ADFSRelyingPartyTrustReport.ps1
+  .INPUTS
+  None
+  .OUTPUTS
+  ADFSReport.xlsx
+  .NOTES
+  Author:        Patrick Horne
+  Creation Date: 22/01/2020
+  Requires:      ImportExcel Module
+  Change Log:
+  V1.0:          Initial Development
+#>
+
 #Requires -Modules ImportExcel
+
+$ADFSServer = Read-Host "Enter the name of the primary server of your ADFS farm."
 
 $SB = {
     $RPTrusts = Get-AdfsRelyingPartyTrust
-    $EnabledRPTrsusts = $RPTrusts | Where { $_.Enabled -eq $true }
-    $DisabledRPTrusts = $RPTrusts | Where { $_.Enabled -eq $False }
+    # $EnabledRPTrsusts = $RPTrusts | Where { $_.Enabled -eq $true }
+    # $DisabledRPTrusts = $RPTrusts | Where { $_.Enabled -eq $False }
 
     $RPTrusts
 
 }
 
-$Session = New-PSSession -ComputerName "uk1-p-adf001"
+$Session = New-PSSession -ComputerName $ADFSServer
 
 if ($Session) {
     $invokeCommandSplat = @{
