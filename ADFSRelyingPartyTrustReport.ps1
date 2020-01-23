@@ -42,7 +42,6 @@ if ($Session) {
     }
 }
 
-
 $exportExcelSplat = @{
         Path            = "ADFSReport.xlsx"
         BoldTopRow      = $true
