@@ -25,8 +25,6 @@ param (
     [String]$ADFSServer
 )
 
-$ADFSServer = Read-Host "Enter the name of the primary server of your ADFS farm."
-
 $SB = {
     $RPTrusts = Get-AdfsRelyingPartyTrust
     # $EnabledRPTrsusts = $RPTrusts | Where { $_.Enabled -eq $true }
