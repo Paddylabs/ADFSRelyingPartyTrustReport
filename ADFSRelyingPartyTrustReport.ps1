@@ -17,6 +17,7 @@
   Requires:      ImportExcel Module
   Change Log:
   V1.0:          Initial Development
+  V2.0:          Input from brettmillerb, swapped read-host for param.
 #>
 
 #Requires -Modules ImportExcel
