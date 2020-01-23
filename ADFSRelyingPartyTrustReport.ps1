@@ -3,10 +3,10 @@
   Dumps the details of all Relying Party Trusts to an Excel Spreadsheet.
   .DESCRIPTION
   Dumps the details of all Relying Party Trusts of a given ADFS Farm to a nicely formatted and filtered Excel Spreadsheet.
-  .PARAMETER
-  None
+  .PARAMETER ADFSServer
+  Define the primary ADFS Server in your ADFS Farm as this is the only server in the farm that you can query
   .EXAMPLE
-  ADFSRelyingPartyTrustReport.ps1
+  ADFSRelyingPartyTrustReport.ps1 -ADFSServer myprimaryadfsserver
   .INPUTS
   None
   .OUTPUTS
@@ -20,6 +20,10 @@
 #>
 
 #Requires -Modules ImportExcel
+
+param (
+    [String]$ADFSServer
+)
 
 $ADFSServer = Read-Host "Enter the name of the primary server of your ADFS farm."
 
