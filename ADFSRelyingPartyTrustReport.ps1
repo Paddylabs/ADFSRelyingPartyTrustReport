@@ -28,13 +28,50 @@ $SB = {
     # $EnabledRPTrsusts = $RPTrusts | Where { $_.Enabled -eq $true }
     # $DisabledRPTrusts = $RPTrusts | Where { $_.Enabled -eq $False }
 
-    $RPTrusts | Select-Object Name,Identifier,Enabled,MonitoringEnabled,LastMonitoredTime,AutoUpdateEnabled,LastUpdateTime,MetadataUrl,`
-    ProtocolProfile,SignedSamlrequestsRequired,SamlResponseSignature,EncryptedNameIdRequired,EncryptionCertificateRevocationCheck,SigningCertificateRevocationCheck,`
-    RequestSigningCertificate,EncryptClaims,TokenLifetime,NotBeforeSkew,EnableJWT,AllowedClientTypes,EncryptionCertificate,PublishedThroughProxy,`
-    AllowedAuthenticationClassReferences,AlwaysRequireAuthentication,ConflictWithPublishedPolicy,LastPublishedPolicyCheckSuccessful,`
-    WSFedEndpoint,AdditionalWSFedEndpoint,ProxyTrustedEndpoints,SamlEndpoints,ClaimsAccepted,ProxyEndpointMappings,IssueOAuthRefreshTokensTo,`
-    SignatureAlgorithm,OrganizationInfo,Notes,IssuanceTransformRules,IssuanceAuthorizationRules,ImpersonationAuthorizationRules,DelegationAuthorizationRules,`
-    AdditionalAuthenticationRules,ClaimsProviderName
+    $RPTrusts | Select-Object -Property @( 
+    'Name'
+    'Identifier'
+    'Enabled'
+    'MonitoringEnabled'
+    'LastMonitoredTime'
+    'AutoUpdateEnabled'
+    'LastUpdateTime'
+    'MetadataUrl'
+    'ProtocolProfile'
+    'SignedSamlrequestsRequired'
+    'SamlResponseSignature'
+    'EncryptedNameIdRequired'
+    'EncryptionCertificateRevocationCheck'
+    'SigningCertificateRevocationCheck'
+    'RequestSigningCertificate'
+    'EncryptClaims'
+    'TokenLifetime'
+    'NotBeforeSkew'
+    'EnableJWT'
+    'AllowedClientTypes'
+    'EncryptionCertificate'
+    'PublishedThroughProxy'
+    'AllowedAuthenticationClassReferences'
+    'AlwaysRequireAuthentication'
+    'ConflictWithPublishedPolicy'
+    'LastPublishedPolicyCheckSuccessful'
+    'WSFedEndpoint'
+    'AdditionalWSFedEndpoint'
+    'ProxyTrustedEndpoints'
+    'SamlEndpoints'
+    'ClaimsAccepted'
+    'ProxyEndpointMappings'
+    'IssueOAuthRefreshTokensTo'
+    'SignatureAlgorithm'
+    'OrganizationInfo'
+    'Notes'
+    'IssuanceTransformRules'
+    'IssuanceAuthorizationRules'
+    'ImpersonationAuthorizationRules'
+    'DelegationAuthorizationRules'
+    'AdditionalAuthenticationRules'
+    'ClaimsProviderName'
+    )
 
 }
 
