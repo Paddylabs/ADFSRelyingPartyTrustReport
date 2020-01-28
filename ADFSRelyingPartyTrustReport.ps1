@@ -82,11 +82,16 @@ $Session = New-PSSession -ComputerName $ADFSServer
 
 if ($Session) {
     $invokeCommandSplat = @{
-        ErrorAction = 'SilentlyContinue'
-        Session     = $Session
-        ScriptBlock = $SB
+        ErrorAction     = 'SilentlyContinue'
+        Session         = $Session
+        ScriptBlock     = $SB
     }
 }
+
+$SelectObjectSplat = @{
+        Property        = "*"
+        ExcludeProperty = "PSComputerName","PSShowComputerName","RunSpaceID"
+    }
 
 $exportExcelSplat = @{
         Path            = "ADFSReport.xlsx"
@@ -98,4 +103,4 @@ $exportExcelSplat = @{
         TableStyle      = "Medium6"
     }
 
-Invoke-Command @invokeCommandSplat | Export-Excel @exportExcelSplat
+Invoke-Command @invokeCommandSplat | Select-Object @SelectObjectSplat | Export-Excel @exportExcelSplat
