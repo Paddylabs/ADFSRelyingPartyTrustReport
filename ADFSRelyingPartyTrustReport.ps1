@@ -104,3 +104,5 @@ $exportExcelSplat = @{
     }
 
 Invoke-Command @invokeCommandSplat | Select-Object @SelectObjectSplat | Export-Excel @exportExcelSplat
+
+Remove-PSSession $Session
