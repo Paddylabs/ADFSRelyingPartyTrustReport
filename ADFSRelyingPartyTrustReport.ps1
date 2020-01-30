@@ -76,6 +76,8 @@ $SB = {
     'ClaimsProviderName'
     )
 
+$RPTrusts
+
 }
 
 $Session = New-PSSession -ComputerName $ADFSServer
